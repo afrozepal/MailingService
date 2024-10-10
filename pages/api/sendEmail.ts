@@ -3,6 +3,8 @@ import nodemailer from "nodemailer";
 import admin from "../../lib/firebaseAdmin";
 import { isValidNumber } from "libphonenumber-js";
 
+
+
 interface FormData {
     firstName: string;
     lastName: string;
@@ -67,10 +69,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ error: validation.message });
   }
 
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
