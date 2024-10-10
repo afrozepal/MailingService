@@ -27,17 +27,15 @@ export default async function handler(req, res) {
     to: "contact@tagsolutionltd.com",
     subject: "New Lead From Website",
     text: `Lead details:
-      First Name: ${formData.firstName}
-      Last Name: ${formData.lastName}
-      Email: ${formData.email}
-      Phone: ${formData.phone ? formData.phone : "Not provided"}
-      How did you hear about us?: ${
-        formData.hearAbout ? formData.hearAbout : "Not provided"
-      }
-      How can we help?: ${formData.help ? formData.help : "Not provided"}
+      First Name: ${firstName}
+      Last Name: ${lastName}
+      Email: ${email}
+      Phone: ${phoneNumber ? phoneNumber : "Not provided"}
+      How did you hear about us?: ${referral ? referral : "Not provided"}
+      How can we help?: ${helpMessage ? helpMessage : "Not provided"}
     `,
   };
-
+  
   try {
     const info = await transporter.sendMail(mailOptions);
     console.log("Message sent: %s", info.messageId);
