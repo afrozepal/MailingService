@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
   const mailOptions = {
     from: process.env.TAGS_EMAIL,
-    to: "contact@tagsolutionltd.com",
+    to: "contact@tagsolutionsltd.com",
     subject: "New Lead From Website",
     text: `Lead details:
       First Name: ${firstName}
